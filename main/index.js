@@ -4,6 +4,7 @@ const cluster = require('cluster');
 const numCPUs = require('os').cpus().length;
 const bodyParser = require('body-parser')
 const mailer = require('./mailer')
+const mongoose = require('mongoose');
 
 const dev = process.env.NODE_ENV !== 'production'
 
@@ -44,12 +45,28 @@ if (!dev && cluster.isMaster) {
 
     server.use(bodyParser.json())
 
-    server.post('/api/contact', (req, res) => {
-        const { name, email, phone, subject, text } = req.body;
-        mailer({name, email, phone, subject, text}).then(() => {
-            res.send('success')
-        }).catch(error => {
-            res.status(422).send(error)
+    mongoose.Promise = global.Promise;
+    mongoose.connect("mongodb://localhost:27017/fusionUTD");
+
+    const memberSchema = new mongoose.Schema({
+        name: String,
+        email: String,
+        phone: String,
+        voicePart: String,
+        classLevel: String,
+        song: String,
+        auditionDate: String
+    })
+
+    const Member = mongoose.model('Member', memberSchema);
+
+    server.post("/addmember", (req, res) => {
+        const myData = new Member(req.body);
+        myData.save()
+        .then(item => {
+            res.send("Member has been saved in the database.");
+        }).catch(err=> {
+            res.status(400).send("Member can't be saved.");
         });
     })
 

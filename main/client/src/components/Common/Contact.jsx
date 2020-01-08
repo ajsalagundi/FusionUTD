@@ -20,7 +20,7 @@ class Contact extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         const data = this.state.formFields;
-        fetch('/api/contact', {
+        fetch('/addmember', {
             method: 'post',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
