@@ -6,7 +6,7 @@ import '../../assets/css/animate.min.css';
 import React from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 // import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo2.png';
+import logo from '../../assets/images/logo.png';
  
 class Navigation extends React.Component {
     render(){

@@ -1,6 +1,6 @@
 import React from 'react';
 import signature from '../../assets/images/signature.png';
-import about1 from '../../assets/images/about1.jpg';
+import about1 from '../../assets/images/group2.jpg';
 import about2 from '../../assets/images/about2.jpg';
 import one from '../../assets/images/1.png';
  
@@ -28,19 +28,12 @@ class About extends React.Component {
                                     </div>
                                     <p>We are a group whose sole purpose is to sing for charity. All profits received from our performances and other events, along with contributions from the public, are donated to a charity.</p>
 
-                                    <div className="signature">
-                                        <img src={signature} alt="signature" />
-                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div className="item">
-                            <div className="about-img">
                                 <img src={about1} className="about-img1" alt="about-img" />
-                                <img src={about2} className="about-img2" alt="about-img" />
-                                <img src={one} className="shape-img" alt="shape" />
-                            </div>
                         </div>
                     </div>
                 </div>

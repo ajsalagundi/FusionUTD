@@ -1039,6 +1039,8 @@ About CSS
   }
   .about-img1 {
     width: 85%;
+    height: auto;
+    transform: scaleX(-1);
   }
   .about-img2 {
     position: absolute;
